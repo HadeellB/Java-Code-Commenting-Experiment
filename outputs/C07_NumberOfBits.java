@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class C07_NumberOfBits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int n = sc.nextInt();
+
+        // Count the 1 bits in the integer's binary representation.
+        int count = 0;
+        while (n != 0) {
+            // Extract the least significant bit and add it to the count.
+            count += n & 1;
+            // Shift right with zero fill, eventually reaching zero even for negative integers.
+            n >>>= 1;
+        }
+        System.out.println("Number of 1 bits: " + count);
+        sc.close();
+    }
+}
